@@ -1,10 +1,5 @@
-import React, { ReactNode } from 'react';
 import styles from '../../../styles/styles.module.css';
-
-interface Props {
-  children: ReactNode;
-};
-
+import { Props } from '../../../interfaces/ChildrenInterface';
 
 const CardActions = (props: Props) => {
   const { children } = props;

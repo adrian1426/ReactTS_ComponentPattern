@@ -3,16 +3,8 @@ import srcNoImage from '../../assets/no-image.jpg';
 import { useProduct } from '../../hooks/useProduct';
 import Card from '../common/card/Card';
 import { ProductProvider } from '../../context/productContext';
+import { Props } from './interfaces/ProductInterface';
 
-interface Product {
-  id: string;
-  title: string;
-  img?: string;
-};
-
-interface Props {
-  product: Product;
-};
 
 const ProductCard = (props: Props) => {
   const { product: { img, title } } = props;

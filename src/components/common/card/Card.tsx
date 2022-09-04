@@ -1,12 +1,8 @@
-import { ReactNode } from 'react';
 import CardTitle from './CardTitle';
 import styles from '../../../styles/styles.module.css';
 import CardImage from './CardImage';
 import CardActions from './CardActions';
-
-interface Props {
-  children: ReactNode;
-};
+import { Props } from '../../../interfaces/ChildrenInterface';
 
 const Card = (props: Props) => {
   const { children } = props;

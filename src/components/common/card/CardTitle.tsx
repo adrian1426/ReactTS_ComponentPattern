@@ -1,10 +1,7 @@
-import { ReactNode, useContext } from "react";
+import { useContext } from "react";
 import productContext from '../../../context/productContext';
 import styles from '../../../styles/styles.module.css';
-
-interface Props {
-  children?: ReactNode;
-};
+import { Props } from '../../../interfaces/ChildrenInterface';
 
 const CardTitle = (props: Props) => {
   const context = useContext(productContext);
