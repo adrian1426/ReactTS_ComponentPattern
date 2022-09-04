@@ -2,9 +2,6 @@ import styles from '../../styles/styles.module.css';
 import srcNoImage from '../../assets/no-image.jpg';
 import { useProduct } from '../../hooks/useProduct';
 import Card from '../common/card/Card';
-import CardTitle from '../common/card/CardTitle';
-import CardImage from '../common/card/CardImage';
-import CardActions from '../common/card/CardActions';
 
 interface Product {
   id: string;
@@ -24,14 +21,14 @@ const ProductCard = (props: Props) => {
 
   return (
     <Card>
-      <CardImage
+      <Card.Image
         src={imgProduct}
         alt={title}
       />
 
-      <CardTitle>{title}</CardTitle>
+      <Card.Title>{title}</Card.Title>
 
-      <CardActions>
+      <Card.Actions>
         <button
           className={styles.buttonMinus}
           onClick={() => increaseCounter(-1)}
@@ -51,7 +48,7 @@ const ProductCard = (props: Props) => {
         >
           +
         </button>
-      </CardActions>
+      </Card.Actions>
     </Card>
   );
 };

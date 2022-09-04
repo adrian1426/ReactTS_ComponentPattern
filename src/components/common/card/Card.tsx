@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
+import CardTitle from './CardTitle';
 import styles from '../../../styles/styles.module.css';
+import CardImage from './CardImage';
+import CardActions from './CardActions';
 
 interface Props {
   children: ReactNode;
@@ -15,4 +18,9 @@ const Card = (props: Props) => {
   );
 };
 
+Card.Title = CardTitle;
+Card.Image = CardImage;
+Card.Actions = CardActions;
+
 export default Card;
+
