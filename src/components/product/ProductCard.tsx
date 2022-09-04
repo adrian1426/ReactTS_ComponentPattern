@@ -2,6 +2,7 @@ import styles from '../../styles/styles.module.css';
 import srcNoImage from '../../assets/no-image.jpg';
 import { useProduct } from '../../hooks/useProduct';
 import Card from '../common/card/Card';
+import { ProductProvider } from '../../context/productContext';
 
 interface Product {
   id: string;
@@ -21,34 +22,34 @@ const ProductCard = (props: Props) => {
 
   return (
     <Card>
-      <Card.Image
-        src={imgProduct}
-        alt={title}
-      />
+      <ProductProvider
+        value={{ imgProduct, title }}
+      >
+        <Card.Image />
+        <Card.Title />
 
-      <Card.Title>{title}</Card.Title>
+        <Card.Actions>
+          <button
+            className={styles.buttonMinus}
+            onClick={() => increaseCounter(-1)}
+          >
+            -
+          </button>
 
-      <Card.Actions>
-        <button
-          className={styles.buttonMinus}
-          onClick={() => increaseCounter(-1)}
-        >
-          -
-        </button>
+          <div
+            className={styles.countLabel}
+          >
+            {counter}
+          </div>
 
-        <div
-          className={styles.countLabel}
-        >
-          {counter}
-        </div>
-
-        <button
-          className={styles.buttonAdd}
-          onClick={() => increaseCounter(1)}
-        >
-          +
-        </button>
-      </Card.Actions>
+          <button
+            className={styles.buttonAdd}
+            onClick={() => increaseCounter(1)}
+          >
+            +
+          </button>
+        </Card.Actions>
+      </ProductProvider>
     </Card>
   );
 };
