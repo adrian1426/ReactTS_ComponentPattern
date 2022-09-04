@@ -2,21 +2,34 @@ import styles from '../../styles/styles.module.css';
 import srcNoImage from '../../assets/no-image.jpg';
 import { useProduct } from '../../hooks/useProduct';
 
-const ProductCard = () => {
+interface Product {
+  id: string;
+  title: string;
+  img?: string;
+};
+
+interface Props {
+  product: Product;
+};
+
+const ProductCard = (props: Props) => {
+  const { product: { img, title } } = props;
   const { counter, increaseCounter } = useProduct();
+
+  const imgProduct = img ? img : srcNoImage;
 
   return (
     <div className={styles.productCard}>
       <img
         className={styles.productImg}
-        src="./coffee-mug.png"
-        alt="coffee mug"
+        src={imgProduct}
+        alt={title}
       />
 
       <span
         className={styles.productDescription}
       >
-        Coffee Mug
+        {title}
       </span>
 
       <div className={styles.buttonsContainer}>
