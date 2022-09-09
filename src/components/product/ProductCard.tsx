@@ -4,6 +4,7 @@ import { useProduct } from '../../hooks/useProduct';
 import Card from '../common/card/Card';
 import { ProductProvider } from '../../context/productContext';
 import { Props } from './interfaces/ProductInterface';
+import '../../styles/custom-styles.css';
 
 
 const ProductCard = (props: Props) => {
@@ -13,7 +14,7 @@ const ProductCard = (props: Props) => {
   const imgProduct = img ? img : srcNoImage;
 
   return (
-    <Card>
+    <Card className="bg-dark">
       <ProductProvider
         value={{ imgProduct, title }}
       >

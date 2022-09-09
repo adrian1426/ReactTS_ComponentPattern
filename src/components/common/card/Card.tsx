@@ -5,10 +5,10 @@ import CardActions from './CardActions';
 import { Props } from '../../../interfaces/ChildrenInterface';
 
 const Card = (props: Props) => {
-  const { children } = props;
+  const { children, className } = props;
 
   return (
-    <div className={styles.productCard}>
+    <div className={`${styles.productCard} ${className}`}>
       {children}
     </div>
   );
