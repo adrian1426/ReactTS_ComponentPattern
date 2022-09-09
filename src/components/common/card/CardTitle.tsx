@@ -5,11 +5,11 @@ import { Props } from '../../../interfaces/ChildrenInterface';
 
 const CardTitle = (props: Props) => {
   const context = useContext(productContext);
-  const { children } = props;
+  const { children, className } = props;
 
   return (
     <span
-      className={styles.productDescription}
+      className={`${styles.productDescription} ${className}`}
     >
       {children ? children : context.title}
     </span>

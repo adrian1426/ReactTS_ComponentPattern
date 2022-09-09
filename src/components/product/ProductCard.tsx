@@ -18,8 +18,8 @@ const ProductCard = (props: Props) => {
       <ProductProvider
         value={{ imgProduct, title }}
       >
-        <Card.Image />
-        <Card.Title />
+        <Card.Image className='cutom-image' />
+        <Card.Title className='text-white' />
 
         <Card.Actions>
           <button
