@@ -14,7 +14,10 @@ const ProductCard = (props: Props) => {
   const imgProduct = img ? img : srcNoImage;
 
   return (
-    <Card className="bg-dark">
+    <Card
+      className="bg-dark"
+      style={{ border: '1px solid white' }}
+    >
       <ProductProvider
         value={{ imgProduct, title }}
       >
