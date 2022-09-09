@@ -9,6 +9,11 @@ const products = [
   {
     id: 'p2',
     title: 'Coffee Mug 2'
+  },
+  {
+    id: 'p3',
+    title: 'Coffee Mug meme',
+    img: './coffee-mug2.png'
   }
 ];
 
@@ -24,9 +29,14 @@ const ShopingPage = () => {
           flexWrap: 'wrap'
         }}
       >
-        <ProductCard
-          product={products[0]}
-        />
+        {
+          products.map((product => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          )))
+        }
       </div>
     </div>
   );
