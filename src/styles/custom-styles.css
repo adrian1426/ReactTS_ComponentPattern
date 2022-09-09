@@ -11,3 +11,13 @@
   padding: 10px;
   width: calc(100% - 20px);
 }
+
+.custom-actions {
+  color: white;
+}
+
+.custom-actions button,
+.custom-actions div {
+  color: white;
+  border-color: white;
+}

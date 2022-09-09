@@ -21,7 +21,7 @@ const ProductCard = (props: Props) => {
         <Card.Image className='cutom-image' />
         <Card.Title className='text-white' />
 
-        <Card.Actions>
+        <Card.Actions className='custom-actions'>
           <button
             className={styles.buttonMinus}
             onClick={() => increaseCounter(-1)}
