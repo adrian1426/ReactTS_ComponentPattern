@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import ProductCard from '../components/product/ProductCard';
+import { Product } from '../components/product/interfaces/ProductInterface';
+import Cart from '../components/common/cart/Cart';
 
-const products = [
+interface IProductInCart extends Product {
+  count: number;
+}
+
+const products: Product[] = [
   {
     id: 'p1',
     title: 'Coffee Mug',
@@ -18,6 +25,8 @@ const products = [
 ];
 
 const ShopingPage = () => {
+  const [shopincCart, setShopincCart] = useState<{ [key: string]: IProductInCart }>({});
+
   return (
     <div>
       <h1>Shoping Store</h1>
@@ -37,6 +46,12 @@ const ShopingPage = () => {
             />
           )))
         }
+      </div>
+
+      <div className="shoping-cart">
+        <Cart
+          product={products[1]}
+        />
       </div>
     </div>
   );
