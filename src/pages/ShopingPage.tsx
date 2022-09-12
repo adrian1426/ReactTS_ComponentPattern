@@ -27,6 +27,15 @@ const products: Product[] = [
 const ShopingPage = () => {
   const [shopincCart, setShopincCart] = useState<{ [key: string]: IProductInCart }>({});
 
+  const onProductCountChange = (product: Product, number: number) => {
+    setShopincCart(prev => {
+      return {
+        ...prev,
+        [product.id]: { ...product, count: prev[product.id] ? prev[product.id].count + number : number }
+      }
+    });
+  };
+
   return (
     <div>
       <h1>Shoping Store</h1>
@@ -43,15 +52,33 @@ const ShopingPage = () => {
             <ProductCard
               key={product.id}
               product={product}
+              value={shopincCart}
+              onChange={onProductCountChange}
             />
           )))
         }
+
+        <ProductCard
+          product={products[0]}
+        />
       </div>
 
-      <div className="shoping-cart">
-        <Cart
-          product={products[1]}
-        />
+      <div className="shoping-cart">{
+        products.map((product => {
+          if (shopincCart[product.id]?.count > 0) {
+            return (
+              <Cart
+                key={product.id}
+                product={product}
+                value={shopincCart}
+                onChange={onProductCountChange}
+              />
+            )
+          }
+
+          return null;
+        }))
+      }
       </div>
     </div>
   );

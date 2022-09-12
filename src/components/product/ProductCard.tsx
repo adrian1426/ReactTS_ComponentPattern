@@ -8,10 +8,14 @@ import '../../styles/custom-styles.css';
 
 
 const ProductCard = (props: Props) => {
-  const { product: { img, title } } = props;
+  const { product: { img, title, id }, value, onChange = () => { } } = props;
   const { counter, increaseCounter } = useProduct();
 
   const imgProduct = img ? img : srcNoImage;
+
+  const isControlled = value ? true : false;
+
+  const newCounter = isControlled ? Math.max(value[id]?.count, 0) : counter;
 
   return (
     <Card
@@ -27,7 +31,7 @@ const ProductCard = (props: Props) => {
         <Card.Actions className='custom-actions'>
           <button
             className={styles.buttonMinus}
-            onClick={() => increaseCounter(-1)}
+            onClick={isControlled ? () => onChange(props.product, -1) : () => increaseCounter(-1)}
           >
             -
           </button>
@@ -35,12 +39,12 @@ const ProductCard = (props: Props) => {
           <div
             className={styles.countLabel}
           >
-            {counter}
+            {newCounter || 0}
           </div>
 
           <button
             className={styles.buttonAdd}
-            onClick={() => increaseCounter(1)}
+            onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
           >
             +
           </button>
