@@ -72,20 +72,14 @@ const ShopingPage = () => {
 
       <div className="shoping-cart">
         {
-          products.map((product => {
-            if (shopincCart[product.id]?.count > 0) {
-              return (
-                <Cart
-                  key={product.id}
-                  product={product}
-                  value={shopincCart}
-                  onChange={onProductCountChange}
-                />
-              )
-            }
-
-            return null;
-          }))
+          Object.entries(shopincCart).map(([key, product]) => (
+            <Cart
+              key={product.id}
+              product={product}
+              value={shopincCart}
+              onChange={onProductCountChange}
+            />
+          ))
         }
       </div>
     </div>
