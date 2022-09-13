@@ -29,6 +29,13 @@ const ShopingPage = () => {
 
   const onProductCountChange = (product: Product, number: number) => {
     setShopincCart(prev => {
+
+      if (prev[product.id]?.count === 1 && number === -1) {
+        const { [product.id]: toDelete, ...rest } = shopincCart;
+
+        return { ...rest };
+      }
+
       return {
         ...prev,
         [product.id]: { ...product, count: prev[product.id] ? prev[product.id].count + number : number }
