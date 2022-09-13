@@ -7,5 +7,5 @@ export interface Product {
 export interface Props {
   product: Product;
   value?: any,
-  onChange?: Function
+  onChange?: (product: Product, number: number) => void;
 };

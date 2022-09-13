@@ -63,22 +63,23 @@ const ShopingPage = () => {
         />
       </div>
 
-      <div className="shoping-cart">{
-        products.map((product => {
-          if (shopincCart[product.id]?.count > 0) {
-            return (
-              <Cart
-                key={product.id}
-                product={product}
-                value={shopincCart}
-                onChange={onProductCountChange}
-              />
-            )
-          }
+      <div className="shoping-cart">
+        {
+          products.map((product => {
+            if (shopincCart[product.id]?.count > 0) {
+              return (
+                <Cart
+                  key={product.id}
+                  product={product}
+                  value={shopincCart}
+                  onChange={onProductCountChange}
+                />
+              )
+            }
 
-          return null;
-        }))
-      }
+            return null;
+          }))
+        }
       </div>
     </div>
   );
