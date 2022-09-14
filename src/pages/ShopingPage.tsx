@@ -27,6 +27,14 @@ const ShopingPage = () => {
       <div>
         <ProductCard
           product={products[0]}
+          initialValues={{
+            count: 4,
+            maxCount: 10
+          }}
+        />
+
+        <ProductCard
+          product={products[1]}
         />
       </div>
     </div>

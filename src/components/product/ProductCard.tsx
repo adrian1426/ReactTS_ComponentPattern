@@ -8,13 +8,12 @@ import '../../styles/custom-styles.css';
 
 
 const ProductCard = (props: Props) => {
-  const { product: { img, title, id }, value, onChange = () => { } } = props;
-  const { counter, increaseCounter } = useProduct();
+  const { product: { img, title, id }, value, onChange = () => { }, initialValues } = props;
+  const { counter, increaseCounter } = useProduct(initialValues!);
 
   const imgProduct = img ? img : srcNoImage;
 
   const isControlled = value ? true : false;
-
   const newCounter = isControlled ? Math.max(value[id]?.count, 0) : counter;
 
   return (
