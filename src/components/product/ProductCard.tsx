@@ -22,13 +22,13 @@ const ProductCard = (props: Props) => {
       style={{ border: '1px solid white' }}
     >
       {
-        (valDecuelto) => (
+        ({ name, mifun }) => (
           <ProductProvider
             value={{ imgProduct, title }}
           >
             <Card.Image className='cutom-image' />
             <Card.Title className='text-white' />
-            <label >{valDecuelto}</label>
+            <label >{name}</label>
 
             <Card.Actions className='custom-actions'>
               <button
@@ -49,6 +49,14 @@ const ProductCard = (props: Props) => {
                 onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
               >
                 +
+              </button>
+
+              <br />
+              <button
+                style={{ color: 'black' }}
+                onClick={() => mifun()}
+              >
+                btn de chiodren
               </button>
             </Card.Actions>
           </ProductProvider>

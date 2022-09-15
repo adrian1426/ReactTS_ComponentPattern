@@ -7,12 +7,16 @@ import { Props } from '../../../interfaces/ChildrenInterface';
 const Card = (props: Props) => {
   const { children, className, ...rest } = props;
 
+  const mifun = () => {
+    console.log("Aquí mi fun");
+  };
+
   return (
     <div
       className={`${styles.productCard} ${className}`}
       {...rest}
     >
-      {children!('AHH')}
+      {children!({ name: 'AHH hernandez', mifun })}
     </div>
   );
 };

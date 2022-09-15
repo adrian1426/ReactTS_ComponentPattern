@@ -1,7 +1,7 @@
 import { ReactNode, CSSProperties } from "react";
 
 export interface Props {
-  children?: (valor: string) => JSX.Element;
+  children?: (valor: { name: string, mifun: Function }) => JSX.Element;
   className?: string;
   style?: CSSProperties;
 };
