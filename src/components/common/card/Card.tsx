@@ -12,7 +12,7 @@ const Card = (props: Props) => {
       className={`${styles.productCard} ${className}`}
       {...rest}
     >
-      {children}
+      {children!('AHH')}
     </div>
   );
 };

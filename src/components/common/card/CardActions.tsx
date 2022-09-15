@@ -1,7 +1,7 @@
 import styles from '../../../styles/styles.module.css';
-import { Props } from '../../../interfaces/ChildrenInterface';
+import { PropsAction } from '../../../interfaces/ChildrenInterface';
 
-const CardActions = (props: Props) => {
+const CardActions = (props: PropsAction) => {
   const { children, className } = props;
 
   return (

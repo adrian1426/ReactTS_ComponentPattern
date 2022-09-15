@@ -21,34 +21,39 @@ const ProductCard = (props: Props) => {
       className="bg-dark"
       style={{ border: '1px solid white' }}
     >
-      <ProductProvider
-        value={{ imgProduct, title }}
-      >
-        <Card.Image className='cutom-image' />
-        <Card.Title className='text-white' />
-
-        <Card.Actions className='custom-actions'>
-          <button
-            className={styles.buttonMinus}
-            onClick={isControlled ? () => onChange(props.product, -1) : () => increaseCounter(-1)}
+      {
+        (valDecuelto) => (
+          <ProductProvider
+            value={{ imgProduct, title }}
           >
-            -
-          </button>
+            <Card.Image className='cutom-image' />
+            <Card.Title className='text-white' />
+            <label >{valDecuelto}</label>
 
-          <div
-            className={styles.countLabel}
-          >
-            {newCounter || 0}
-          </div>
+            <Card.Actions className='custom-actions'>
+              <button
+                className={styles.buttonMinus}
+                onClick={isControlled ? () => onChange(props.product, -1) : () => increaseCounter(-1)}
+              >
+                -
+              </button>
 
-          <button
-            className={styles.buttonAdd}
-            onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
-          >
-            +
-          </button>
-        </Card.Actions>
-      </ProductProvider>
+              <div
+                className={styles.countLabel}
+              >
+                {newCounter || 0}
+              </div>
+
+              <button
+                className={styles.buttonAdd}
+                onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
+              >
+                +
+              </button>
+            </Card.Actions>
+          </ProductProvider>
+        )
+      }
     </Card>
   );
 };

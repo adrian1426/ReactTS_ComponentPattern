@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import productContext from '../../../context/productContext';
 import styles from '../../../styles/styles.module.css';
-import { Props } from '../../../interfaces/ChildrenInterface';
+import { PropsAction } from '../../../interfaces/ChildrenInterface';
 
-const CardTitle = (props: Props) => {
+const CardTitle = (props: PropsAction) => {
   const context = useContext(productContext);
   const { children, className } = props;
 

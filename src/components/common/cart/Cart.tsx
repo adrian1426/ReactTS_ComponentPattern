@@ -21,33 +21,35 @@ const Cart = (props: Props) => {
       className="bg-dark"
       style={{ border: '1px solid white', width: '120px' }}
     >
-      <ProductProvider
-        value={{ imgProduct, title }}
-      >
-        <Card.Image className='cutom-image' />
+      {() => (
+        <ProductProvider
+          value={{ imgProduct, title }}
+        >
+          <Card.Image className='cutom-image' />
 
-        <Card.Actions className='custom-actions'>
-          <button
-            className={styles.buttonMinus}
-            onClick={isControlled ? () => onChange(props.product, -1) : () => increaseCounter(-1)}
-          >
-            -
-          </button>
+          <Card.Actions className='custom-actions'>
+            <button
+              className={styles.buttonMinus}
+              onClick={isControlled ? () => onChange(props.product, -1) : () => increaseCounter(-1)}
+            >
+              -
+            </button>
 
-          <div
-            className={styles.countLabel}
-          >
-            {newCounter || 0}
-          </div>
+            <div
+              className={styles.countLabel}
+            >
+              {newCounter || 0}
+            </div>
 
-          <button
-            className={styles.buttonAdd}
-            onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
-          >
-            +
-          </button>
-        </Card.Actions>
-      </ProductProvider>
+            <button
+              className={styles.buttonAdd}
+              onClick={isControlled ? () => onChange(props.product, 1) : () => increaseCounter(1)}
+            >
+              +
+            </button>
+          </Card.Actions>
+        </ProductProvider>
+      )}
     </Card>
   );
 };
